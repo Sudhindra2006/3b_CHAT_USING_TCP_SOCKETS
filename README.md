@@ -1,6 +1,6 @@
 # 3b.CREATION FOR CHAT USING TCP SOCKETS
-Name: Sudhindra.R
-Reg No: 212224240164
+## NAME:Sudhindra.R
+## REGNO:212224240164
 ## AIM
 To write a python program for creating Chat using TCP Sockets Links.
 ## ALGORITHM:
@@ -10,32 +10,35 @@ To write a python program for creating Chat using TCP Sockets Links.
  server
 4. Send and receive the message using the send function in socket.
 ## PROGRAM
-## Client.py
+### server.py
 ```
-import socket 
-s=socket.socket() 
-s.connect(('localhost',8000)) 
-while True: 
-    msg=input("Client > ") 
-    s.send(msg.encode()) 
-    print("Server > ",s.recv(1024).decode())
-```
-## Server.py
-```
-import socket 
-s=socket.socket() 
-s.bind(('localhost',8000)) 
-s.listen(5) 
-c,addr=s.accept() 
-while True: 
-    ClientMessage=c.recv(1024).decode() 
-    print("Client > ",ClientMessage) 
-    msg=input("Server > ") 
+import socket
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
+c,addr=s.accept()
+while True:
+    ClientMessage=c.recv(1024).decode()
+    print("Client > ",ClientMessage)
+    msg=input("Server > ")
     c.send(msg.encode())
+
+```
+
+### client.py
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+    msg=input("Client > ")
+    s.send(msg.encode())
+    print("Server > ",s.recv(1024).decode())
+
 ```
 ## OUPUT
+<img width="1919" height="1139" alt="image" src="https://github.com/user-attachments/assets/dace386b-1308-4f12-8fbf-8c456d9b1677" />
 
-<img width="1441" height="439" alt="image" src="https://github.com/user-attachments/assets/46d7646e-81b7-46ee-a366-240d9a1a9c4e" />
 
 ## RESULT
 Thus, the python program for creating Chat using TCP Sockets Links was successfully 
